@@ -1,7 +1,5 @@
 # 🎓 Campus Hub — Stay Organized, Slay Every Deadline ✨
 
-> **Tugas Penerapan Pemrograman Web: HTML, CSS, JavaScript, dan Public REST API.**
-
 Website platform mahasiswa modern yang dirancang untuk membantu mengatur jadwal perkuliahan, melacak dan memanajemen tugas harian (*Task Tracker*) dengan penyimpanan lokal (*localStorage*), serta mengeksplorasi pengumuman/feed kampus secara *real-time* menggunakan integrasi Public REST API.
 
 ---
