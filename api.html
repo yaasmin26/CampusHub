@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Hub - Public API (Campus Feed) 🌐</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script src="api.js" defer></script>
+</head>
+
+<body>
+
+  <!-- HEADER & NAVIGASI -->
+  <header>
+    <div class="header-brand">
+      <h2>
+        <a href="index.html">🎓 Campus Hub</a>
+      </h2>
+
+      <!-- Tombol Navbar Toggle (Memanggil toggleNav() di script.js) -->
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle Navigation">
+        <span id="nav-icon">☰</span>
+      </button>
+    </div>
+
+    <nav id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="task.html">Task</a>
+      <a href="api.html" class="active">Feeds <span class="nav-badge">HOT ✨</span></a>
+    </nav>
+  </header>
+
+  <!-- KONTEN FEED KAMPUS (PUBLIC API) -->
+  <section class="api-explorer">
+
+    <!-- HERO HEADER -->
+    <div class="api-hero">
+      <div class="api-hero-text">
+        <h1>🌐 Campus Feed (Public API)</h1>
+        <p>
+          Mengambil data dari REST API publik (<strong>JSONPlaceholder</strong>) menggunakan <strong>Fetch API (GET)</strong>.
+        </p>
+      </div>
+
+      <div class="meta-pill">
+        <span>🟢</span> Status: Terhubung
+      </div>
+    </div>
+
+    <!-- PENCARIAN & TOMBOL REFRESH -->
+    <div class="api-controls">
+      <!-- Input pencarian memanggil cariPostingan() di api.js -->
+      <div class="api-search">
+        <input type="text" id="api-search-input" onkeyup="cariPostingan()" placeholder="🔍 Cari judul atau isi postingan...">
+      </div>
+
+      <!-- Tombol muat ulang memanggil loadFeed() di api.js -->
+      <button class="btn-primary" onclick="loadFeed()" style="padding: 10px 22px; font-size: 13px;">
+        <span>🔄</span> Muat Ulang Data
+      </button>
+    </div>
+
+    <!-- 1. PESAN LOADING -->
+    <div class="state-container" id="loading-state">
+      <div class="spinner"></div>
+      <p style="color: var(--text-muted); font-size: 14px; margin-top: 10px;">Memuat data dari Public API...</p>
+    </div>
+
+    <!-- 2. PESAN ERROR -->
+    <div class="state-container" id="error-state" style="display: none; background: #fef2f2; border: 1px solid #fecaca; border-radius: 16px; padding: 24px; text-align: center; margin: 20px 0;">
+      <p style="color: #dc2626; font-weight: 700; margin-bottom: 6px;">❌ Gagal Mengambil Data!</p>
+      <p id="error-message" style="color: #64748b; font-size: 14px; margin-bottom: 14px;">Terjadi kesalahan saat menghubungi API server.</p>
+      <!-- Tombol coba lagi memanggil loadFeed() di api.js -->
+      <button class="btn-primary" onclick="loadFeed()" style="padding: 8px 18px; font-size: 13px; background: #dc2626;">
+        Coba Muat Ulang
+      </button>
+    </div>
+
+    <!-- 3. RENDER KARTU DATA SEDERHANA -->
+    <div id="api-content-area">
+      <div style="margin-bottom: 20px; font-size: 14px; font-weight: 700; color: var(--text-muted);" id="data-count">
+        Menampilkan data dari public API
+      </div>
+
+      <div class="api-grid" id="api-cards-grid">
+        <!-- Kartu akan diisi otomatis oleh api.js -->
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Campus Hub — Stay Organized, Slay Every Deadline ✨</p>
+  </footer>
+
+</body>
+
+</html>

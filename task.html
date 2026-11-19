@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Task - Task Tracker & Management 🎯</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script src="task.js" defer></script>
+</head>
+
+<body>
+
+  <!-- HEADER & NAVIGASI -->
+  <header>
+    <div class="header-brand">
+      <h2>
+        <a href="index.html">🎓 Campus Hub</a>
+      </h2>
+
+      <!-- Tombol Navbar Toggle (Memanggil toggleNav() di script.js) -->
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle Navigation">
+        <span id="nav-icon">☰</span>
+      </button>
+    </div>
+
+    <nav id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="task.html" class="active">Task</a>
+      <a href="api.html">Feeds <span class="nav-badge">HOT ✨</span></a>
+    </nav>
+  </header>
+
+  <!-- KONTEN TUGAS -->
+  <section class="task">
+
+    <div class="task-header-section">
+      <h1>My Tasks 📌</h1>
+      <p class="task-subtitle">
+        Track tugas kuliah lo biar gak panik saat deadline H-1 🎯
+      </p>
+    </div>
+
+    <!-- ACTION BAR: Filter, Pencarian & Tombol Aksi -->
+    <div class="task-action-bar">
+
+      <!-- Filter Status (Langsung memanggil filterTugas() di task.js) -->
+      <div class="task-filters">
+        <button class="filter-btn active" onclick="filterTugas('all', this)">Semua</button>
+        <button class="filter-btn" onclick="filterTugas('pending', this)">Belum Selesai</button>
+        <button class="filter-btn" onclick="filterTugas('completed', this)">Selesai</button>
+      </div>
+
+      <!-- Kotak Pencarian Real-Time (Langsung memanggil cariTugas() di task.js) -->
+      <div class="task-search-box">
+        <span class="task-search-icon">🔍</span>
+        <input type="text" id="task-search-input" onkeyup="cariTugas()" placeholder="Cari judul / mata kuliah...">
+      </div>
+
+      <!-- Tombol Tambah & Tombol Impor Tugas -->
+      <div class="task-btn-group">
+        <!-- Memanggil imporTugas() di task.js -->
+        <button class="btn-api-import" id="btn-import-api-tasks" onclick="imporTugas()" title="Tarik contoh tugas otomatis">
+          <span>⚡</span> Impor Tugas
+        </button>
+        <!-- Memanggil bukaModal() di task.js -->
+        <button class="btn-add-task" onclick="bukaModal()">
+          <span>➕</span> Tambah Tugas
+        </button>
+      </div>
+
+    </div>
+
+    <!-- CONTAINER DAFTAR KARTU TUGAS (DI-RENDER OLEH JAVASCRIPT) -->
+    <div class="task-list" id="task-list-container">
+      <!-- Kartu tugas dinamis akan dimuat oleh task.js -->
+    </div>
+
+    <!-- TIPS MAHASISWA (Memanggil gantiTips() di task.js) -->
+    <div class="tips">
+      <h2>Student Tips 💡</h2>
+      <p id="dynamic-tip-text">
+        "Jangan menunda tugas kecil, karena deadline besar dimulai dari tugas kecil."
+      </p>
+      <button class="btn-refresh-tips" onclick="gantiTips()">
+        Ganti Tips Harian ✨
+      </button>
+    </div>
+
+  </section>
+
+  <!-- MODAL DIALOG: TAMBAH TUGAS BARU -->
+  <div class="modal-backdrop" id="add-task-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Tambah Tugas Baru 📝</h3>
+        <!-- Memanggil tutupModal() di task.js -->
+        <button class="modal-close" onclick="tutupModal()">&times;</button>
+      </div>
+
+      <!-- Form submit memanggil simpanTugas(event) di task.js -->
+      <form id="form-add-task" onsubmit="simpanTugas(event)" novalidate>
+        <div class="form-group">
+          <label for="modal-task-title">Judul Tugas <span style="color: #ef4444;">*</span></label>
+          <input type="text" id="modal-task-title" placeholder="Contoh: 💻 Pemrograman Web - Modul 2">
+          <small class="error-text" id="err-task-title"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="modal-task-category">Mata Kuliah / Kategori <span style="color: #ef4444;">*</span></label>
+          <input type="text" id="modal-task-category" placeholder="Contoh: Pemrograman Web, Basis Data, dll.">
+          <small class="error-text" id="err-task-category"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="modal-task-deadline">Batas Waktu / Deadline <span style="color: #ef4444;">*</span></label>
+          <input type="text" id="modal-task-deadline" placeholder="Contoh: Kamis, 23:59 atau Besok Siang">
+          <small class="error-text" id="err-task-deadline"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="modal-task-desc">Catatan / Deskripsi Singkat</label>
+          <textarea id="modal-task-desc" rows="3" placeholder="Tuliskan catatan detail pengerjaan tugas..."></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <!-- Memanggil tutupModal() di task.js -->
+          <button type="button" class="btn-secondary" onclick="tutupModal()" style="padding: 10px 22px; font-size: 14px;">
+            Batal
+          </button>
+          <button type="submit" class="btn-primary" style="padding: 10px 24px; font-size: 14px;">
+            Simpan Tugas ✨
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Campus Hub — Stay Organized, Slay Every Deadline ✨</p>
+  </footer>
+
+</body>
+
+</html>

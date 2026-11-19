@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Hub - Your Campus Life, Organized ✨</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- HEADER & NAVIGASI -->
+  <header>
+    <div class="header-brand">
+      <h2>
+        <a href="index.html">🎓 Campus Hub</a>
+      </h2>
+
+      <!-- Tombol Navbar Toggle (Langsung memanggil toggleNav() di script.js) -->
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle Navigation">
+        <span id="nav-icon">☰</span>
+      </button>
+    </div>
+
+    <nav id="nav-menu">
+      <a href="index.html" class="active">Home</a>
+      <a href="task.html">Task</a>
+      <a href="api.html">Feeds <span class="nav-badge">HOT ✨</span></a>
+    </nav>
+  </header>
+
+  <!-- DASHBOARD UTAMA -->
+  <section class="dashboard">
+
+    <!-- Sapaan Waktu Otomatis -->
+    <div class="greeting-banner" id="dynamic-greeting">
+      ✨ Stay Productive & Slay the Day
+    </div>
+
+    <h1>
+      Your Campus Life,<br>
+      <span class="gradient-text">On Point ✨</span>
+    </h1>
+
+    <p class="subtitle">
+      Atur jadwal kuliah, tugas, and daily campus life biar tetap teratur dan gak gampang burnout ✨
+    </p>
+
+    <!-- STATS BOX CONTAINER -->
+    <div class="box-container">
+
+      <!-- Box 1: Jadwal -->
+      <div class="box">
+        <h2>📅</h2>
+        <h3>Jadwal Hari Ini</h3>
+        <p>Pemrograman Web<br><strong>15.15 - 16.55</strong></p>
+        <span style="font-size: 12px; color: var(--primary); font-weight: 700; margin-top: 8px; display: inline-block;">📍 Lab Komputer 3</span>
+      </div>
+
+      <!-- Box 2: Tugas Aktif -->
+      <div class="box">
+        <h2>📝</h2>
+        <h3>Tugas Aktif</h3>
+        <p id="active-task-count">3 tugas belum selesai</p>
+        <div style="margin-top: 12px;">
+          <a href="task.html" style="font-size: 13px; color: var(--primary); font-weight: 700; text-decoration: none;">
+            Buka Task Tracker &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Box 3: Study Streak (Langsung memanggil tambahStreak() di script.js) -->
+      <div class="box">
+        <h2>🔥</h2>
+        <h3>Study Streak</h3>
+        <p id="streak-count">7 hari berturut-turut</p>
+        <button class="streak-btn" onclick="tambahStreak()" title="Klik setelah belajar hari ini!">
+          ⚡ Tambah Streak Hari Ini
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DAILY MOOD & INSPO (Langsung memanggil gantiQuote() di script.js) -->
+    <div class="api-quote-card">
+      <div class="api-quote-header">
+        <span class="api-tag">
+          <span>✨</span> Daily Mood & Inspo
+        </span>
+        <button class="btn-refresh-quote" onclick="gantiQuote()" title="Ambil motivasi baru">
+          <span>🔄</span> New Vibe ✨
+        </button>
+      </div>
+
+      <div class="api-quote-text" id="api-advice-text">
+        "Konsistensi kecil setiap hari akan menghasilkan lompatan besar di masa depan."
+      </div>
+
+      <div class="api-quote-author">
+        — Daily Thought Drop
+      </div>
+    </div>
+
+    <!-- CALL TO ACTION BUTTONS -->
+    <div class="cta-group">
+      <a href="task.html" class="button">
+        <span>📋</span> Kelola Tugas Kuliah
+      </a>
+      <a href="api.html" class="btn-secondary">
+        <span>🚀</span> Explore Campus Feed
+      </a>
+    </div>
+
+    <!-- KOTAK SARAN & HUBUNGI KAMI (Langsung memanggil kirimPesan() di script.js) -->
+    <div class="feedback-card" style="margin-top: 40px; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); max-width: 600px; margin-left: auto; margin-right: auto; text-align: left;">
+      <h2 style="font-size: 20px; font-weight: 800; margin-bottom: 6px;">📩 Kotak Saran & Hubungi Kami</h2>
+      <p style="color: #64748b; font-size: 13px; margin-bottom: 20px;">
+        Punya pertanyaan atau masukan seputar perkuliahan? Kirim pesanmu di sini.
+      </p>
+
+      <div id="form-alert" style="display: none; padding: 12px 16px; border-radius: 12px; font-size: 13px; font-weight: 600; margin-bottom: 16px;"></div>
+
+      <form id="contact-form" onsubmit="kirimPesan(event)" novalidate style="display: flex; flex-direction: column; gap: 14px;">
+        <div>
+          <label for="name-input" style="display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Nama Lengkap <span style="color: #ef4444;">*</span></label>
+          <input type="text" id="name-input" placeholder="Masukkan nama Anda" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 14px; outline: none; box-sizing: border-box;">
+        </div>
+
+        <div>
+          <label for="email-input" style="display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Alamat Email <span style="color: #ef4444;">*</span></label>
+          <input type="email" id="email-input" placeholder="nama@email.com" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 14px; outline: none; box-sizing: border-box;">
+        </div>
+
+        <div>
+          <label for="message-input" style="display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Pesan / Saran <span style="color: #ef4444;">*</span></label>
+          <textarea id="message-input" rows="3" placeholder="Tuliskan pesan atau saran Anda di sini..." style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 14px; outline: none; resize: none; box-sizing: border-box;"></textarea>
+        </div>
+
+        <button type="submit" class="button" style="justify-content: center; width: 100%; border: none; cursor: pointer; margin-top: 6px;">
+          Kirim Pesan
+        </button>
+      </form>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Campus Hub — Stay Organized, Slay Every Deadline ✨</p>
+  </footer>
+
+</body>
+
+</html>

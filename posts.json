@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "author": "Budi Santoso",
+    "faculty": "Informatika",
+    "category": "Akademik",
+    "title": "Jadwal Pengisian KRS Online Semester Ini",
+    "body": "Pengisian KRS online akan dibuka mulai hari Senin. Jangan lupa konsultasi dengan dosen wali masing-masing sebelum batas akhir.",
+    "date": "Hari ini"
+  },
+  {
+    "id": 2,
+    "author": "Siti Rahma",
+    "faculty": "Sistem Informasi",
+    "category": "Tech & Koding",
+    "title": "Sharing Session: Belajar Pemrograman Web",
+    "body": "Yuk belajar bareng seputar HTML, CSS, JavaScript dan Fetch API untuk persiapan tugas besar. Sesi santai di Discord kampus jam 19.30 WIB.",
+    "date": "Kemarin"
+  },
+  {
+    "id": 3,
+    "author": "Rizky Pratama",
+    "faculty": "Teknik Komputer",
+    "category": "Magang",
+    "title": "Pendaftaran Magang Kampus Merdeka (MSIB)",
+    "body": "Pendaftaran program magang MSIB mitra industri teknologi sudah dibuka. Berkas rekomendasi bisa diajukan ke bagian kemahasiswaan.",
+    "date": "2 hari lalu"
+  },
+  {
+    "id": 4,
+    "author": "Elvira Sangadji",
+    "faculty": "Desain Komunikasi Visual",
+    "category": "Lifestyle",
+    "title": "Rekomendasi Cafe Nugas Dekat Kampus",
+    "body": "Buat yang butuh tempat nugas dengan Wi-Fi kencang, colokan banyak, dan suasana tenang, ini rekomendasi cafe nyaman di sekitar kampus.",
+    "date": "3 hari lalu"
+  },
+  {
+    "id": 5,
+    "author": "Dewi Lestari",
+    "faculty": "Manajemen",
+    "category": "Beasiswa",
+    "title": "Info Beasiswa Prestasi & Potongan UKT",
+    "body": "Dibuka pendaftaran beasiswa prestasi akademik semester ini dengan syarat IPK minimal 3.30. Pendaftaran melalui portal beasiswa kampus.",
+    "date": "4 hari lalu"
+  },
+  {
+    "id": 6,
+    "author": "Fajar Nugraha",
+    "faculty": "Teknologi Informasi",
+    "category": "Organisasi",
+    "title": "Open Recruitment Panitia Seminar Nasional",
+    "body": "Himpunan mahasiswa membuka pendaftaran panitia seminar teknologi. Kesempatan bagus untuk menambah pengalaman dan relasi.",
+    "date": "5 hari lalu"
+  }
+]
